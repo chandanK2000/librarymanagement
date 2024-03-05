@@ -1,8 +1,9 @@
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <div>
-      <h3>Libary management projects </h3>
+      <Header/>
     </div>
   );
 }
