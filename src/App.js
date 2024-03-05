@@ -1,9 +1,12 @@
-import Header from "./components/header/Header";
+import Home from "./Home";
+// import ScrollIndicator from "./ScrollIndicator";
+// import Header from "./components/header/Header";
 
 function App() {
   return (
     <div>
-      <Header/>
+      <Home/>
+      
     </div>
   );
 }

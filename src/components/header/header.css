@@ -1,0 +1,88 @@
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #123f6d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  opacity: 0.99;
+}
+.libraryname{
+  color: #fff;
+  font-size: 16px;
+  margin: 0px 4px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+.img-fluid {
+  transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.navbar-right {
+  margin-left: auto;
+}
+
+.login-wrapper {
+  position: relative;
+}
+
+.login-button {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.custom-popover {
+  max-width: none;
+  width: 180px; 
+
+}
+
+.popover-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popover-list li {
+  padding: 2px 0;
+}
+
+.popover-list li a {
+  display: block;
+  padding: 3px 4px;
+  text-decoration: none;
+  color: #333;
+  text-align: left;
+  transition: background-color 0.3s;
+  border-radius: 3px;
+}
+
+.popover-list li a:hover {
+  background-color: #f0f0f0;
+
+}
+
+@media (max-width:425px){
+  .libraryname{
+    font-size: 12px;
+  }
+}
