@@ -1,3 +1,4 @@
+
 .custom-navbar {
   display: flex;
   justify-content: space-between;
@@ -11,7 +12,11 @@
   z-index: 1000;
   opacity: 0.99;
 }
-.libraryname{
+.dropdown-menu{
+  background-color: #aeb2b6 !important;
+}
+
+.libraryname {
   color: #fff;
   font-size: 16px;
   margin: 0px 4px;
@@ -21,6 +26,7 @@
   display: flex;
   align-items: center;
 }
+
 .img-fluid {
   transition: transform 0.3s ease;
 }
@@ -29,6 +35,7 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
 .navbar-right {
   margin-left: auto;
 }
@@ -50,39 +57,37 @@
 .login-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.custom-popover {
-  max-width: none;
-  width: 180px; 
 
+.crossbutton{
+   background-color: #10253a !important;
+  color: #fff; 
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 24px !important;
+  padding-top: 1px !important;
 }
 
-.popover-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+.crossbutton:hover{
+   opacity: 0.;
 }
 
-.popover-list li {
-  padding: 2px 0;
-}
-
-.popover-list li a {
-  display: block;
-  padding: 3px 4px;
-  text-decoration: none;
-  color: #333;
-  text-align: left;
-  transition: background-color 0.3s;
-  border-radius: 3px;
-}
-
-.popover-list li a:hover {
-  background-color: #f0f0f0;
-
+@media (max-width:576px){
+  .libraryname{
+    font-size: 14px;
+  }
 }
 
 @media (max-width:425px){
   .libraryname{
-    font-size: 12px;
+    font-size: 10px;
   }
 }

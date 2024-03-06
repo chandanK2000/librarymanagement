@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
 import './header.css';
-const Header = () => {
-  const [popoverVisible, setPopoverVisible] = useState(false);
+import LoginForm from '../login/LoginForm';
 
-  const handleMouseEnter = () => {
-    setPopoverVisible(true);
+const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [loginType, setLoginType] = useState('');
+
+  const handleLogin = (type) => {
+    setLoginType(type);
+    setShowModal(true);
   };
 
-  const handleMouseLeave = () => {
-    setPopoverVisible(false);
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -19,25 +22,43 @@ const Header = () => {
         <span className='libraryname'>Library Management Application</span>
       </div>
       <div className="navbar-right">
-        <OverlayTrigger
-          trigger="manual"
-          show={popoverVisible}
-          placement="bottom"
-          overlay={
-            <Popover id="popover-basic" className="custom-popover" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <Popover.Body>
-                <ul className="popover-list">
-                  <li><a href="#"><i className="bi bi-person"></i> Login as User</a></li>
-                  <li><a href="#"><i className="bi bi-shield-lock"></i> Login as Admin</a></li>
-
-                </ul>
-              </Popover.Body>
-            </Popover>
-          }
-        >
-          <button className="login-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}> <i className="bi bi-person"></i> Login</button>
-        </OverlayTrigger>
+        <div className="dropdown">
+          <button className="login-button" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i className="bi bi-person"></i> Login
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="loginDropdown">
+            <li><button className="dropdown-item custom-dropdown-item" onClick={() => handleLogin('user')}><i className="fa fa-user"></i> Login as a User</button></li>
+            <li><button className="dropdown-item custom-dropdown-item" onClick={() => handleLogin('admin')}><i className="fas fa-user-cog"></i> Login as Admin</button></li>
+          </ul>
+        </div>
       </div>
+      <div className={`modal ${showModal ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: showModal ? 'block' : 'none' }} >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">
+                {loginType === 'user' ? (
+                  <>
+                    <i className="fa fa-user mr-2" /> User Login
+                  </>
+                ) : (
+                  <>
+                    <i className="fa fa-user-shield mr-2" /> Admin Login
+                  </>
+                )}
+              </h5>
+              <button type="button" className="close crossbutton" aria-label="Close" onClick={handleCloseModal}>
+                <span aria-hidden="true" className='cross'>&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <LoginForm loginType={loginType} />
+            </div>
+         
+          </div>
+        </div>
+      </div>
+      <div className={`modal-backdrop fade ${showModal ? 'show' : ''}`} style={{ display: showModal ? 'block' : 'none' }}></div>
     </nav>
   );
 };

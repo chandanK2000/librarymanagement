@@ -1,0 +1,17 @@
+/* buttons.css */
+
+/* Custom styles for buttons */
+.custom-button {
+  background-color: #007bff; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Add transition effect */
+}
+
+/* Button hover effect */
+.custom-button:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
